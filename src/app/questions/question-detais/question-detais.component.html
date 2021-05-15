@@ -1,0 +1,56 @@
+<button class="btn btn-link" (click)="navigateToList()">Back to List</button>
+<ng-container *ngIf="question">
+  <div class="row">
+    <div class="col-12">
+      <h2>
+        <span>{{ question.isAnswered ? "✅" : "❔" }}</span
+        >&nbsp;{{ question.title }}
+      </h2>
+      <span
+        class="badge badge-success ml-1"
+        *ngFor="let tag of question.tags"
+        >{{ tag }}</span
+      >
+    </div>
+  </div>
+  <div class="row mt-1">
+    <div class="col-4">
+      <span>
+        <span class="text-secondary font-weight-bold">Asked</span>
+        {{ asked }} ago
+      </span>
+    </div>
+    <div class="col-4">
+      <span>
+        <span class="text-secondary font-weight-bold">Active</span>
+        {{ lastActive }} ago
+      </span>
+    </div>
+    <div class="col-4">
+      <span>
+        <span class="text-secondary font-weight-bold">Viewed</span>
+        {{ question.viewCount }} times</span
+      >
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-1">
+      <img
+        class="profile-image"
+        [src]="question.owner.profileImage"
+        [alt]="question.owner.displayName"
+      />
+    </div>
+    <div class="col-2">
+      <div class="text-info font-italic">
+        {{ question.owner.displayName }}
+      </div>
+      <div class="badge badge-info">
+        Reputation:{{ question.owner.reputation }}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12"></div>
+  </div>
+</ng-container>

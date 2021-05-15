@@ -1,0 +1,167 @@
+<div class="row">
+  <div class="col-12">
+    <h1 class="text-center">Advance Search</h1>
+  </div>
+</div>
+<form (ngSubmit)="onSearch()">
+  <div class="row form-group">
+    <div class="col-4">
+      <label for="q">q</label>
+      <input
+        type="text"
+        class="form-control"
+        name="q"
+        id="q"
+        [(ngModel)]="searchParam.q"
+      />
+    </div>
+    <div class="col-4">
+      <label for="accepted">accepted</label>
+      <select
+        class="form-control"
+        name="accepted"
+        id="accepted"
+        [(ngModel)]="searchParam.accepted"
+      >
+        <option *ngFor="let item of booleanArray" [value]="item">
+          {{ item }}
+        </option>
+      </select>
+    </div>
+    <div class="col-4">
+      <label for="answers">answers</label>
+      <input
+        type="number"
+        class="form-control"
+        name="answers"
+        id="answers"
+        [(ngModel)]="searchParam.answers"
+      />
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-4">
+      <label for="body">body</label>
+      <input
+        type="text"
+        class="form-control"
+        name="body"
+        id="body"
+        [(ngModel)]="searchParam.body"
+      />
+    </div>
+    <div class="col-4">
+      <label for="closed">closed</label>
+      <select
+        class="form-control"
+        name="closed"
+        id="closed"
+        [(ngModel)]="searchParam.closed"
+      >
+        <option *ngFor="let item of booleanArray" [value]="item">
+          {{ item }}
+        </option>
+      </select>
+    </div>
+    <div class="col-4">
+      <label for="migrated">migrated</label>
+      <select
+        class="form-control"
+        name="migrated"
+        id="migrated"
+        [(ngModel)]="searchParam.migrated"
+      >
+        <option *ngFor="let item of booleanArray" [value]="item">
+          {{ item }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-4">
+      <label for="notice">notice</label>
+      <select
+        class="form-control"
+        name="notice"
+        id="notice"
+        [(ngModel)]="searchParam.notice"
+      >
+        <option *ngFor="let item of booleanArray" [value]="item">
+          {{ item }}
+        </option>
+      </select>
+    </div>
+    <div class="col-4">
+      <label for="nottaged">nottaged</label>
+      <input
+        type="text"
+        class="form-control"
+        name="nottaged"
+        id="nottaged"
+        [(ngModel)]="searchParam.nottaged"
+      />
+    </div>
+    <div class="col-4">
+      <label for="title">title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        [(ngModel)]="searchParam.title"
+      />
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-4">
+      <label for="user">user</label>
+      <input
+        type="number"
+        class="form-control"
+        name="user"
+        id="user"
+        [(ngModel)]="searchParam.user"
+      />
+    </div>
+    <div class="col-4">
+      <label for="url">url</label>
+      <input
+        type="text"
+        class="form-control"
+        name="url"
+        id="url"
+        [(ngModel)]="searchParam.url"
+      />
+    </div>
+    <div class="col-4">
+      <label for="views">views</label>
+      <input
+        type="number"
+        class="form-control"
+        name="views"
+        id="views"
+        [(ngModel)]="searchParam.views"
+      />
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-4">
+      <label for="wiki">wiki</label>
+      <select
+        class="form-control"
+        name="wiki"
+        id="wiki"
+        [(ngModel)]="searchParam.wiki"
+      >
+        <option *ngFor="let item of booleanArray" [value]="item">
+          {{ item }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </div>
+</form>

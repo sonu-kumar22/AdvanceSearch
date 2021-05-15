@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-12">
+    <h1 class="text-center">Questions</h1>
+  </div>
+</div>
+<button class="btn btn-link" (click)="navigateToSearch()">
+  Back to Search
+</button>
+<div *ngIf="questions">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Answered</th>
+        <th scope="col">Title</th>
+        <th scope="col">Answer Count</th>
+        <th scope="col">Tags</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of questions; index as i">
+        <td class="text-center">{{ question.isAnswered ? "✅" : "❔" }}</td>
+        <td>
+          <a
+            routerLink="details"
+            [state]="{ data: question }"
+            class="text-primary"
+            >{{ question.title }}</a
+          >
+        </td>
+        <td>{{ question.answerCount }}</td>
+        <td>{{ question.tags }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination
+    [totalItems]="originalQuestion.length"
+    (pageChanged)="pageChanged($event)"
+    itemsPerPage="5"
+  ></pagination>
+</div>
+<h1 class="text-alert" *ngIf="!questions">Data not found {{ questions }}</h1>
